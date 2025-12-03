@@ -64,3 +64,175 @@ button {
 button:hover {
     background: #274bb5;
 }
+/*CSS DAVICHIN*/
+
+
+.body-guisecre {
+    background-color: #f2f2f2;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.guiSecretaria-main {
+    background-color: white;
+    width: 100%;
+    max-width: 1000px; 
+    display: grid;
+    grid-template-areas: 
+        "saludo agregar"
+        "lista lista";
+    grid-template-columns: 1fr auto; 
+    align-content: start;
+    gap: 20px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+}
+
+/* --- ÁREA DEL SALUDO --- */
+.guiSecretaria-saludo {
+    grid-area: saludo;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.guiSecretaria-saludo h1 {
+    font-size: 1.8rem;
+    color: #b71c1c;
+    font-weight: 400;
+}
+.guiSecretaria-saludo h1 strong { font-weight: 700; }
+
+/* --- ÁREA DE AGREGAR --- */
+.guiSecretaria-agregar {
+    grid-area: agregar;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.guiSecretaria-agregar span {
+    font-weight: 600;
+    color: #555;
+    display: none;
+}
+@media(min-width: 600px) { .guiSecretaria-agregar span { display: block; } }
+
+/* Botón estilizado */
+.btn-add {
+    background-color: #0f6cbf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 40px; 
+    height: 40px;
+    font-size: 24px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.btn-add:hover { background-color: #0d5ca0; }
+
+/* --- LA LISTA (Aquí ocurre la magia de las tarjetas) --- */
+.guiSecretaria-lista {
+    grid-area: lista;
+}
+
+.guiSecretaria-lista ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.guiSecretaria-lista li {
+    display: flex;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden; 
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-height: 100px;
+}
+
+.guiSecretaria-lista li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- ESTILOS INTERNOS DE LA TARJETA (Generados por JS) --- */
+
+/* El bloque de color a la izquierda */
+.card-img {
+    width: 150px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; color: rgba(255,255,255,0.5);
+    flex-shrink: 0;
+}
+/* Colores dinámicos */
+.bg-blue { background: linear-gradient(135deg, #2193b0, #6dd5ed); }
+.bg-purple { background: linear-gradient(135deg, #cc2b5e, #753a88); }
+.bg-green { background: linear-gradient(135deg, #56ab2f, #a8e063); }
+
+
+.card-info {
+    flex-grow: 1;
+    padding: 15px 20px;
+    display: flex; flex-direction: column; justify-content: center;
+}
+
+.card-info h3 {
+    color: #0f6cbf;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+}
+
+
+.card-menu {
+    width: 50px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; color: #999;
+    cursor: pointer;
+}
+
+
+/* -- ESTILOS PARA AGREGAR.HTML (El formulario) -- */
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-header {
+    display: flex; justify-content: space-between; 
+    margin-bottom: 20px; color: #8f4f56;
+}
+.btn-cancelar {
+    text-decoration: none; color: #666; border: 1px solid #ccc; padding: 5px 10px; border-radius: 5px;
+}
+
+.formulario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.campo { display: flex; flex-direction: column; gap: 5px; }
+.full-width { grid-column: 1 / -1; } /* Ocupa todo el ancho */
+
+input, select, textarea { padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+
+.btn-guardar {
+    background-color: #8f4f56; color: white; border: none;
+    padding: 12px; width: 100%; border-radius: 5px; cursor: pointer; font-size: 1rem;
+}
