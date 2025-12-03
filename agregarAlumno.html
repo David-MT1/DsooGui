@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Alumno</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="body-guisecre">
+
+    <main class="app-container">
+        
+        <div class="form-header">
+            <h2>Nuevo Alumno</h2>
+
+            <a href="guiSecretaria.html" class="btn-cancelar">Cancelar</a>
+        </div>
+
+        <form class="formulario-grid">
+            <div class="campo">
+                <label>Nombre Completo</label>
+                <input type="text" id="nombre" placeholder="Ej: Wiliam Bornaz" required>
+            </div>
+            <div class="campo">
+                <label>DNI</label>
+                <input type="number" id="dni" placeholder="Número de documento" required>
+            </div>
+            <div class="campo">
+                <label>Código</label>
+                <input type="text" id="codigo" placeholder="Código alumno">
+            </div>
+            <div class="campo">
+                <label>Sede</label>
+                <select id="sede">
+                    <option>Lima</option>
+                    <option>Arequipa</option>
+                    <option>Cuzco</option>
+                    <option>Moquegua</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label>Carrera</label>
+                <input type="text" id="carrera" placeholder="Ej: Arquitectura">
+            </div>
+            <div class="campo">
+                <label>Año</label>
+
+                <input type="number" id="anio" placeholder="Ej: 2025">
+            </div>
+            <div class="campo">
+                <label>Correo</label>
+                <input type="email" id="correo" placeholder="email@ejemplo.com">
+            </div>
+            <div class="campo">
+                <label>Celular</label>
+                <input type="tel" id="celular" placeholder="+51 999 999 999">
+            </div>
+            
+            <div class="campo full-width">
+                <label>Observaciones</label>
+                <textarea id="observaciones" rows="4" placeholder="Detalles adicionales..."></textarea>
+            </div>
+            
+            <div class="campo full-width">
+                <button type="submit" class="btn-guardar">Guardar Alumno</button>
+            </div>
+        </form>
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="scriptSecre.js"></script>
+
+    </main>
+
+</body>
+</html>
