@@ -9,18 +9,6 @@
         function openGestionMatriculas() {
             window.location.href = "gestion_matriculas.html";
         }
-        function actualizarCreditos() {
-            let checkboxes = document.querySelectorAll('.curso');
-            let total = 0;
-
-            checkboxes.forEach(chk => {
-                if (chk.checked) {
-                    total += parseInt(chk.dataset.creditos);
-                }
-            });
-
-            document.getElementById('totalCreditos').value = total;
-        }
     </script>
 </head>
 
