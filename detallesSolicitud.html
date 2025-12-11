@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Solicitud</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="body-guisecre">
+    
+    <main class="container-detalle">
+        
+        <div class="header-detalle">
+            <a href="convalidacionSecretaria.html" class="btn-volver">
+                <ion-icon name="arrow-back-outline"></ion-icon> Volver a la lista
+            </a>
+        </div>
+
+        <div class="perfil-alumno">
+            <div class="foto-grande">
+                <ion-icon name="person-circle-outline"></ion-icon>
+            </div>
+            <div class="datos-alumno">
+                <h2>Juan Pérez</h2>
+                <p><strong>Carrera:</strong> Ingeniería de Sistemas</p>
+                <p><strong>Código:</strong> 2023-1054</p>
+                <p><strong>Solicitud:</strong> Matrícula 2025-I</p>
+            </div>
+        </div>
+
+        <hr class="separador">
+
+        <div class="seccion-cursos">
+            <h3>Cursos Solicitados</h3>
+            
+            <ul class="lista-simple">
+                <li><ion-icon name="book-outline"></ion-icon> Matemática Discreta</li>
+                <li><ion-icon name="book-outline"></ion-icon> Programación II</li>
+                <li><ion-icon name="book-outline"></ion-icon> Base de Datos I</li>
+            </ul>
+
+            <div class="alerta-convalidacion">
+                <div class="cabecera-convalidacion">
+                    <div class="titulo-alert">
+                        <ion-icon name="swap-horizontal-outline"></ion-icon>
+                        <strong>Solicitud de Convalidación detectada</strong>
+                        <span class="curso-nombre">Física I</span>
+                    </div>
+                    <button class="btn-ver-mas" onclick="toggleDetalles()">
+                        Ver más <ion-icon name="chevron-down-outline" id="icono-flecha"></ion-icon>
+                    </button>
+                </div>
+
+                <div class="detalle-convalidacion" id="info-convalidacion">
+                    <div class="grid-comparacion">
+                        <div class="columna">
+                            <small>Curso Origen (Otra Univ):</small>
+                            <h4>Física General</h4>
+                            <p>Introducción a la mecánica clásica y vectores.</p>
+                        </div>
+                        <div class="columna centro">
+                            <div class="porcentaje-similitud">
+                                <span>90%</span>
+                                <small>Similitud</small>
+                            </div>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                        <div class="columna">
+                            <small>Curso Destino (Aquí):</small>
+                            <h4>Física I</h4>
+                            <p>Mecánica vectorial, cinemática y dinámica.</p>
+                        </div>
+                    </div>
+
+                    <div class="acciones-convalidacion">
+                        <p class="pregunta">¿Aprobar esta convalidación?</p>
+                        <button class="btn-sm btn-accept"><ion-icon name="checkmark-circle"></ion-icon> Aceptar Convalidación</button>
+                        <button class="btn-sm btn-reject"><ion-icon name="close-circle"></ion-icon> Rechazar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="area-resolucion">
+            <h3>Resolución Final de Matrícula</h3>
+            
+            <label>Observaciones (Obligatorio si se rechaza):</label>
+            <textarea class="txt-observaciones" placeholder="Escriba aquí si falta algún documento o hay problemas..."></textarea>
+
+            <div class="botones-finales">
+                <button class="btn-grande btn-denegar">
+                    Denegar y Enviar Observaciones
+                </button>
+                <button class="btn-grande btn-aprobar">
+                    Aceptar Matrícula
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        // Script para abrir/cerrar el acordeón
+        function toggleDetalles() {
+            var contenido = document.getElementById('info-convalidacion');
+            var flecha = document.getElementById('icono-flecha');
+            
+            // Alternar clase para mostrar
+            if (contenido.style.display === "block") {
+                contenido.style.display = "none";
+                flecha.setAttribute('name', 'chevron-down-outline');
+            } else {
+                contenido.style.display = "block";
+                flecha.setAttribute('name', 'chevron-up-outline');
+            }
+        }
+    </script>
+</body>
+</html>
