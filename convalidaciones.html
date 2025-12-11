@@ -8,6 +8,59 @@
         function goMatriculas() {
             window.location.href = "matriculas.html";
         }
+        function activarSubida(inputId) {
+            document.getElementById(inputId).click();
+        }
+
+        function archivosSeleccionados(inputElement) {
+            if (inputElement.files.length > 0) {
+                let nombres = [];
+                for (let i = 0; i < inputElement.files.length; i++) {
+                    nombres.push(inputElement.files[i].name);
+                }
+                alert("Archivos seleccionados para la solicitud " + inputElement.dataset.id + ":\n" + nombres.join("\n"));
+                
+            }
+        }
+
+        function enviarNuevaSolicitud() {
+            const codigoOrigen = document.getElementById('codigo-origen').value.toUpperCase().trim();
+            const codigoDestino = document.getElementById('codigo-destino').value.toUpperCase().trim();
+            
+            if (!codigoOrigen || !codigoDestino) {
+                alert("Por favor, ingrese el Código de origen y el Código a convalidar.");
+                return;
+            }
+
+            const now = new Date();
+            const fechaSolicitud = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+
+            const nuevaFila = document.createElement('tr');
+            nuevaFila.innerHTML = `
+                <td>${codigoOrigen}</td>
+                <td>${codigoDestino}</td>
+                <td>${fechaSolicitud}</td>
+                <td>Pendiente</td>
+                <td>
+                    <button onclick="activarSubida('file-${codigoOrigen.toLowerCase()}')">Subir</button>
+                    <input 
+                        type="file" 
+                        id="file-${codigoOrigen.toLowerCase()}" 
+                        style="display: none;" 
+                        data-id="${codigoOrigen}"
+                        onchange="archivosSeleccionados(this)"
+                        multiple>
+                </td>
+            `;
+
+            const tbody = document.getElementById('historial-body');
+            tbody.appendChild(nuevaFila);
+
+            document.getElementById('codigo-origen').value = '';
+            document.getElementById('codigo-destino').value = '';
+            
+            alert(`Solicitud de convalidación para ${codigoOrigen} enviada (Estado: Pendiente).`);
+        }
     </script>
 </head>
 
@@ -21,48 +74,67 @@
     <h2>Historial de Convalidaciones</h2>
 
     <table>
-        <tr>
-            <th>Código origen</th>
-            <th>Fecha solicitud</th>
-            <th>Estado</th>
-            <th>Documentos</th>
-        </tr>
+        <tbody id="historial-body">
+            <tr>
+                <th>Código origen</th>
+                <th>Código a convalidar</th>
+                <th>Fecha solicitud</th>
+                <th>Estado</th>
+                <th>Documentos</th>
+            </tr>
 
-        <tr>
-            <td>MAT205</td>
-            <td>05/02/2025</td>
-            <td>Aprobado</td>
-            <td><button>Ver</button></td>
-        </tr>
+            <tr>
+                <td>MAT205</td>
+                <td>MAT305</td>
+                <td>05/02/2025</td>
+                <td>Aprobado</td>
+                
+                <td><button>Ver</button></td>
+            </tr>
 
-        <tr>
-            <td>FIS103</td>
-            <td>05/11/2025</td>
-            <td>Pendiente</td>
-            <td><button>Subir</button></td>
-        </tr>
+            <tr>
+                <td>FIS103</td>
+                <td>FIS203</td>
+                <td>05/11/2025</td>
+                <td>Pendiente</td>
+                <td>
+                    <button onclick="activarSubida('file-fis103')">Subir</button>
+                    
+                    <input 
+                        type="file" 
+                        id="file-fis103" 
+                        style="display: none;" 
+                        data-id="FIS103"
+                        onchange="archivosSeleccionados(this)"
+                        multiple>
+                </td>
+            </tr>
 
-        <tr>
-            <td>CSC101</td>
-            <td>05/11/2025</td>
-            <td>Pendiente</td>
-            <td><button>Subir</button></td>
-        </tr>
+            <tr>
+                <td>CSC101</td>
+                <td>CSC201</td>
+                <td>05/11/2025</td>
+                <td>Pendiente</td>
+                <td><button>Subir</button></td>
+            </tr>
+        </tbody>
     </table>
 
     <h3>Solicitar nueva Convalidación</h3>
 
     <div class="info-box" style="width: 50%;">
         <label>Código del curso de origen:</label>
-        <input type="text" style="width: 100%; padding: 8px; margin-top: 5px;">
+        <input type="text" id="codigo-origen" style="width: 100%; padding: 8px; margin-top: 5px;">
 
         <label>Código del curso a convalidar:</label>
-        <input type="text" style="width: 100%; padding: 8px; margin-top: 5px;">
+        <input type="text" id="codigo-destino" style="width: 100%; padding: 8px; margin-top: 5px;">
 
         <label style="margin-top: 10px;">Subir documentos</label>
         <input type="file" multiple>
 
-        <button class="button-primary" style="margin-top: 15px;">Enviar Solicitud</button>
+        <button class="button-primary" style="margin-top: 15px;" onclick="enviarNuevaSolicitud()">
+            Enviar Solicitud
+        </button>
     </div>
 
 </div>
