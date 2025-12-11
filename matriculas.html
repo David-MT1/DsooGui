@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Matrículas</title>
+    <link rel="stylesheet" href="stylesMyC.css">
+
+    <script>
+        function openGestionMatriculas() {
+            window.location.href = "gestion_matriculas.html";
+        }
+        function actualizarCreditos() {
+            let checkboxes = document.querySelectorAll('.curso');
+            let total = 0;
+
+            checkboxes.forEach(chk => {
+                if (chk.checked) {
+                    total += parseInt(chk.dataset.creditos);
+                }
+            });
+
+            document.getElementById('totalCreditos').value = total;
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="header dbl" ondblclick="openGestionMatriculas()">
+    Universidad XYZ
+</div>
+
+<div class="container">
+
+    <h2>Proceso de matrícula - Año académico 2026 - I</h2>
+
+    <div class="info-box">
+        <div class="info-title">Carrera</div>
+        <div class="info-value">Ingeniería de Sistemas</div>
+    </div>
+
+    <div class="info-box">
+        <div class="info-title">Código estudiante</div>
+        <div class="info-value">20231111</div>
+    </div>
+
+    <table>
+        <tr>
+            <th>Código curso</th>
+            <th>Nombre del curso</th>
+            <th>Fecha</th>
+            <th>Créditos</th>
+            <th>Seleccionar</th>
+        </tr>
+
+        <tr>
+            <td>IS301</td>
+            <td>Programación Avanzada</td>
+            <td>05/02/2025</td>
+            <td>3</td>
+            <td><input type="checkbox" class="checkbox"></td>
+        </tr>
+
+        <tr>
+            <td>SPT401</td>
+            <td>Redes Avanzadas</td>
+            <td>05/11/2025</td>
+            <td>4</td>
+            <td><input type="checkbox" class="checkbox"></td>
+        </tr>
+
+        <tr>
+            <td>CSC102</td>
+            <td>Estructura de Datos</td>
+            <td>05/11/2025</td>
+            <td>3</td>
+            <td><input type="checkbox" class="checkbox"></td>
+        </tr>
+    </table>
+
+    <div class="summary-box">
+        <div class="summary-title">Resumen matrícula</div>
+
+        <div class="summary-flex">
+            <div>Cursos seleccionados: 0</div>
+            <div>Total créditos: 0</div>
+        </div>
+
+        <button class="button-primary">Confirmar matrícula</button>
+    </div>
+
+</div>
+
+</body>
+</html>

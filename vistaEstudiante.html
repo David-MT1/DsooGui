@@ -1,127 +1,135 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ficha de usuario — Sin span</title>
-  <link rel="stylesheet" href="stylesViewStudent.css">
-</head>
-<body>
+    <!doctype html>
+    <html lang="es">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>Ficha de usuario — Sin span</title>
+      <link rel="stylesheet" href="stylesViewStudent.css">
+    </head>
+    <body>
 
-<div class="container">
+    <div class="container">
 
-  <aside class="left">
-    <div class="brand">Universidad XYZ</div>
+      <aside class="left">
+        <div class="brand">Universidad XYZ</div>
 
-    <div class="card">
-      <div >Acciones</div>
-      <br>
+        <div class="card">
+          <div >Acciones</div>
+          <br>
 
-      <button class="btn primary" id="btnConvalid">Convalidaciones</button>
-      <button class="btn" id="btnMatri">Matrículas</button>
-    </div>
-
-    <div class="card">
-      <p><strong>Información breve</strong></p>
-      <p>  Programa: Ingeniería</p>
-    </div>
-  </aside>
-
-  <section>
-    <div class="title">Información del estudiante</div>
-
-    <div class="card">
-      <div class="info-row">
-
-        <div class="info-item">
-          <label class="label">Sede</label>
-          <div class="value">Sede Central</div>
+          <button class="btn primary" id="btnConvalid">Convalidaciones</button>
+          <button class="btn" id="btnMatri">Matrículas</button>
         </div>
 
-        <div class="info-item">
-          <label class="label">Carrera</label>
-          <div class="value">Ingeniería de Sistemas</div>
+        <div class="card">
+          <p><strong>Información breve</strong></p>
+          <p>  Programa: Ingeniería</p>
+        </div>
+      </aside>
+
+      <section>
+        <div class="title">Información del estudiante</div>
+
+        <div class="card">
+          <div class="info-row">
+
+            <div class="info-item">
+              <label class="label">Sede</label>
+              <div class="value">Sede Central</div>
+            </div>
+
+            <div class="info-item">
+              <label class="label">Carrera</label>
+              <div class="value">Ingeniería de Sistemas</div>
+            </div>
+
+            <div class="info-item">
+              <label class="label">Año</label>
+              <div class="value">3°</div>
+            </div>
+
+            <div class="info-item">
+              <label class="label">Código estudiante</label>
+              <div class="value">20231111</div>
+            </div>
+
+          </div>
+
+          <hr style="border-top:1px solid var(--border);">
+
+          <div style="display:flex;gap:18px;flex-wrap:wrap;">
+            <div style="flex:1;">
+              <div class="label">Datos de contacto</div>
+              <div class="value">mperez@unsa.edu.pe</div>
+              <p >Cel: 987 654 321</p>
+            </div>
+
+            <div style="min-width:200px;">
+              <div class="label">Notas / Observaciones</div>
+              <p >Sin observaciones (por ahora)</p>
+            </div>
+          </div>
         </div>
 
-        <div class="info-item">
-          <label class="label">Año</label>
-          <div class="value">3°</div>
+        
+        <div class="card" id="panelAccion">
+          <div id="panelTitle" style="font-weight:700;margin-bottom:8px;"></div>
+          <div id="panelBody" style="color:var(--muted);"></div>
         </div>
 
-        <div class="info-item">
-          <label class="label">Código estudiante</label>
-          <div class="value">20231111</div>
-        </div>
+      </section>
 
-      </div>
-
-      <hr style="border-top:1px solid var(--border);">
-
-      <div style="display:flex;gap:18px;flex-wrap:wrap;">
-        <div style="flex:1;">
-          <div class="label">Datos de contacto</div>
-          <div class="value">mperez@unsa.edu.pe</div>
-          <p >Cel: 987 654 321</p>
-        </div>
-
-        <div style="min-width:200px;">
-          <div class="label">Notas / Observaciones</div>
-          <p >Sin observaciones (por ahora)</p>
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="card" id="panelAccion">
-      <div id="panelTitle" style="font-weight:700;margin-bottom:8px;"></div>
-      <div id="panelBody" style="color:var(--muted);"></div>
-    </div>
-
-  </section>
-
-  
-  <aside class="right">
-    <div class="avatar">
-      <img src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg">
-    </div>
-
-    <div class="name">
-      <div class="fullname">Ana María Pérez García</div>
-      <div class="subtitle">Estudiante · 3° Año</div>
-      <p class="subtitle">DNI: 12345678</p>
-    </div>
-  </aside>
-
-</div>
-
-<script>
-  const btnCon = document.getElementById("btnConvalid");
-  const btnMat = document.getElementById("btnMatri");
-
-  const panel = document.getElementById("panelAccion");
-  const title = document.getElementById("panelTitle");
-  const body = document.getElementById("panelBody");
-
-  function mostrar(t, contenido){
-    panel.style.display = "block";
-    title.textContent = t;
-    body.innerHTML = contenido;
-  }
-
-  btnCon.addEventListener("click", ()=>{
-    mostrar("Convalidaciones", `
-      <div>...</div>
       
-    `);
-  });
+      <aside class="right">
+        <div class="avatar">
+          <img src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg">
+        </div>
 
-  btnMat.addEventListener("click", ()=>{
-    mostrar("Matrículas", `
-      <div>...</div>
-      
-    `);
-  });
-</script>
+        <div class="name">
+          <div class="fullname">Ana María Pérez García</div>
+          <div class="subtitle">Estudiante · 3° Año</div>
+          <p class="subtitle">DNI: 12345678</p>
+        </div>
+      </aside>
 
-</body>
-</html>
+    </div>
+
+    <script>
+      const btnCon = document.getElementById("btnConvalid");
+      const btnMat = document.getElementById("btnMatri");
+
+      const panel = document.getElementById("panelAccion");
+      const title = document.getElementById("panelTitle");
+      const body = document.getElementById("panelBody");
+
+      function mostrar(t, contenido){
+        panel.style.display = "block";
+        title.textContent = t;
+        body.innerHTML = contenido;
+      }
+
+      btnCon.addEventListener("click", ()=>{
+        mostrar("Convalidaciones", `
+          <div>...</div>
+          
+        `);
+      });
+
+      btnMat.addEventListener("click", ()=>{
+        mostrar("Matrículas", `
+          <div>...</div>
+          
+        `);
+      });
+
+      btnConvalid.addEventListener('dblclick', () => {
+        window.location.href = 'convalidaciones.html';
+      });
+
+      btnMatri.addEventListener('dblclick', () => {
+        window.location.href = 'matriculas.html';
+      });
+    </script>
+
+    </body>
+    </html>

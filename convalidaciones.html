@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Convalidaciones</title>
+    <link rel="stylesheet" href="stylesMyC.css">
+    <script>
+        function goMatriculas() {
+            window.location.href = "matriculas.html";
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="header dbl" ondblclick="goMatriculas()">
+    Universidad XYZ
+</div>
+
+<div class="container">
+    <h2>Historial de Convalidaciones</h2>
+
+    <table>
+        <tr>
+            <th>Código origen</th>
+            <th>Fecha solicitud</th>
+            <th>Estado</th>
+            <th>Documentos</th>
+        </tr>
+
+        <tr>
+            <td>MAT205</td>
+            <td>05/02/2025</td>
+            <td>Aprobado</td>
+            <td><button>Ver</button></td>
+        </tr>
+
+        <tr>
+            <td>FIS103</td>
+            <td>05/11/2025</td>
+            <td>Pendiente</td>
+            <td><button>Subir</button></td>
+        </tr>
+
+        <tr>
+            <td>CSC101</td>
+            <td>05/11/2025</td>
+            <td>Pendiente</td>
+            <td><button>Subir</button></td>
+        </tr>
+    </table>
+
+    <h3>Solicitar nueva Convalidación</h3>
+
+    <div class="info-box" style="width: 50%;">
+        <label>Código del curso de origen</label>
+        <input type="text" style="width: 100%; padding: 8px; margin-top: 5px;">
+
+        <label style="margin-top: 10px;">Subir documentos</label>
+        <input type="file" multiple>
+
+        <button class="button-primary" style="margin-top: 15px;">Enviar Solicitud</button>
+    </div>
+
+</div>
+
+</body>
+</html>
